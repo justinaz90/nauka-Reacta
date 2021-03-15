@@ -1,6 +1,3 @@
-const test = "1"
-
-
 import React from 'react';
 import styles from './Column.scss';
 import PropTypes from 'prop-types';
@@ -17,6 +14,7 @@ class Column extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     cards: PropTypes.array,
+    icon: PropTypes.string,
   }
 
   addCard(title){
@@ -28,9 +26,9 @@ class Column extends React.Component {
             key: state.cards.lenght ? state.cards[state.cards.lenght-1].key+1 : 0,
             title,
             icon: 'list-alt',
-            cards: []
-          }
-        ]
+            cards: [],
+          },
+        ],
       }
     ));
   }
@@ -52,7 +50,7 @@ class Column extends React.Component {
           <Creator text={settings.cardCreatorText} action={title => this.addCard(title)} />
         </div>
       </section>
-    )
+    );
   }
 }
 
