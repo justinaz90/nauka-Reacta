@@ -13,11 +13,17 @@ class SearchResults extends React.Component {
     cards: PropTypes.array,
     icon: PropTypes.string,
     columns: PropTypes.array,
+    changeSearchString: PropTypes.func,
+    history: PropTypes.object,
   }
 
   static defaultProps = {
     icon: settings.defaultColumnIcon,
     title: 'Search Results ',
+  }
+
+  state = {
+    searchString: this.props.changeSearchString(this.props.history.location.pathname.replace('/search/', '')),
   }
 
   render() {
