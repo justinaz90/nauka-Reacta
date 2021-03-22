@@ -14,7 +14,7 @@ class SearchResults extends React.Component {
     icon: PropTypes.string,
     columns: PropTypes.array,
     changeSearchString: PropTypes.func,
-    history: PropTypes.object,
+    match: PropTypes.object,
   }
 
   static defaultProps = {
@@ -22,8 +22,8 @@ class SearchResults extends React.Component {
     title: 'Search Results ',
   }
 
-  state = {
-    searchString: this.props.changeSearchString(this.props.history.location.pathname.replace('/search/', '')),
+  componentDidMount () {
+    this.props.changeSearchString(this.props.match.params.searchString);
   }
 
   render() {
